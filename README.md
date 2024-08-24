@@ -11,7 +11,7 @@ Key Dependencies:
 
 Other references:
 
-* Overview: [Get the Future by Chronos of Amazon's Timeseries FM]()
+* Overview: [Get the Future by Chronos of Amazon's Timeseries FM](https://speakerdeck.com/ma2shita/get-the-future-by-chronos-of-amazons-time-series-fm)
 
 ## Files
 
@@ -76,6 +76,29 @@ aws lambda update-function-code --function-name ${MY-FUNCTION} --image-uri ${ECR
 while true ; do aws lambda get-function --function-name amazon-chronos-t5-tiny_fastapi0 | jq -r .Configuration.LastUpdateStatus ; sleep 5 ; done
 # waiting for `Successful`
 ```
+
+## References
+
+Chronos
+
+* [Chronos: Learning the language of time series](https://www.amazon.science/code-and-datasets/chronos-learning-the-language-of-time-series)
+  * [amazon-science/chronos-forecasting](https://github.com/amazon-science/chronos-forecasting)
+* [Google Colabで時系列基盤モデルを試す](https://note.com/hatti8/n/n9e9221c8d1ca)
+
+Tools and Developments
+
+* huggingface
+  * [Manage huggingface_hub cache-system](https://huggingface.co/docs/huggingface_hub/guides/manage-cache) Learn the Cache system on Huggingface
+  * [Command Line Interface (CLI)](https://huggingface.co/docs/huggingface_hub/main/en/guides/cli) huggingface-cli
+* Amazon ECR and Lambda Web Adapter
+  * [docker/library/python](https://gallery.ecr.aws/docker/library/python)
+  * [awsguru/aws-lambda-adapter](https://gallery.ecr.aws/awsguru/aws-lambda-adapter)
+  * [SinatraをAWS Lambdaで動かす (Lambda Web Adapter 0.8.1 使用)](https://qiita.com/ma2shita/items/55a655d7781fc2e72fd7) Step by Step for Lambda Web Adapter (It's own content)
+* Docker
+  * [マルチステージビルドの利用](https://matsuand.github.io/docs.docker.jp.onthefly/develop/develop-images/multistage-build/) Multi-stage build for Docker
+  * [JSONArgsRecommended](https://docs.docker.com/reference/build-checks/json-args-recommended/) Learn the CMD, ENTRYPOINT
+* FastAPI
+  * [FastAPI](https://fastapi.tiangolo.com/ja/)
 
 ## Author
 

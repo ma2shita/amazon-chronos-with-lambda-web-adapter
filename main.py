@@ -9,7 +9,7 @@ from starlette.responses import StreamingResponse
 
 def forecast(historical: pd.DataFrame, prediction_length: int = 1) -> pd.DataFrame:
     pl = ChronosPipeline.from_pretrained("amazon/chronos-t5-tiny", device_map="cpu", torch_dtype=torch.bfloat16)
-    fc = pl.predict(torch.tensor(historical[0]), num_samples=len(historical), prediction_length=prediction_length)
+    fc = pl.predict(torch.tensor(historical[0]), prediction_length=prediction_length)
     min, median, max = np.quantile(fc[0].numpy(), [0.20, 0.50, 0.80], axis=0) # 20%, 50%, 80%
     ret = pd.DataFrame({"min": min, "median": median, "max": max})
     return ret

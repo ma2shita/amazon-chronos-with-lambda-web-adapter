@@ -20,10 +20,10 @@ RUN python3 -m pip install --no-cache-dir uvicorn fastapi pandas matplotlib
 ENV MPLCONFIGDIR=/tmp/matplotlib/
 COPY *.py ./
 
-FROM base AS test_runner
-RUN python3 -m pip install --no-cache-dir pytest httpx
-RUN python3 -m pytest -s test_main.py
-
 FROM base AS prod_runner
 SHELL ["/bin/bash", "-c"]
 CMD uvicorn --port=8080 main:app
+
+FROM base AS test_runner
+RUN python3 -m pip install --no-cache-dir pytest httpx
+RUN python3 -m pytest -s test_main.py
