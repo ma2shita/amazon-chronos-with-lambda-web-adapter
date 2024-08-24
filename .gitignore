@@ -1,0 +1,9 @@
+.*.swp
+a.out
+*.orig
+.DS_Store
+*.test
+.git/
+.pytest_cache
+__pycache__/
+chronos-libs/
